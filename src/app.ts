@@ -4,6 +4,7 @@ import {authenticateToken} from "./middlewares/authMiddleware";
 import userRoutes from "./routes/userRoutes";
 import authRoutes from "./routes/authRoutes";
 import bookRoutes from "./routes/bookRoutes";
+import borrowRoutes from "./routes/borrowRoutes";
 
 const app :Express = express();
 
@@ -24,5 +25,6 @@ app.use(cors(corsOptions)) // Enable or allow cors
 app.use("/api/v1/auth", authRoutes)
 app.use("/api/v1/user", authenticateToken, userRoutes)
 app.use("/api/v1/book", bookRoutes)
+app.use("/api/borrows", borrowRoutes);
 
 export default app;
