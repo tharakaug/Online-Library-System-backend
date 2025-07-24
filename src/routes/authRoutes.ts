@@ -1,9 +1,19 @@
+// import {Router} from "express";
+// import {authenticateUser} from "../controllers/authController";
+//
+// const authRouter:Router = Router();
+//
+// authRouter.post("/login",authenticateUser)
+//
+// export default authRouter
+
 import {Router} from "express";
-// import productRoutes from "./product.routes";
-import {authenticateUser} from "../controllers/authController";
+import {authenticateUser, register,} from "../controllers/authController";
 
-const authRouter:Router = Router();
+const authRouter: Router = Router()
 
-authRouter.post("/login",authenticateUser)
+authRouter.post("/register", register)
+authRouter.post("/login", authenticateUser);
 
-export default authRouter
+
+export default authRouter;
