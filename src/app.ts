@@ -7,6 +7,8 @@ import bookRoutes from "./routes/bookRoutes";
 import borrowRoutes from "./routes/borrowRoutes";
 import adminRoutes from "./routes/adminRoutes";
 
+import path from 'path'; //new
+
 const app :Express = express();
 
 app.use(express.json())
@@ -28,5 +30,6 @@ app.use("/api/v1/user", userRoutes)
 app.use("/api/v1/book", bookRoutes)
 app.use("/api/v1/borrows", borrowRoutes);
 app.use('/api/v1/admin', adminRoutes)
+
 
 export default app;

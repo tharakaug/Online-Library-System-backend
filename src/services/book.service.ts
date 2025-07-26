@@ -1,7 +1,16 @@
 import Book from "../model/book.model";
 import { BookDTO } from "../dto/book.dto";
 
-export const createBook = async (data: BookDTO) => {
+export const createBook = async (data: {
+    image: string | null;
+    totalCopies: any;
+    author: any;
+    isbn: any;
+    availableCopies: any;
+    publishedYear: any;
+    title: any;
+    category: any
+}) => {
     return await Book.create(data);
 };
 
