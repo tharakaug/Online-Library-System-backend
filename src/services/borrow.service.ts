@@ -1,4 +1,4 @@
-import { Borrow } from "../model/borrow.model";
+import {Borrow} from "../model/borrow.model";
 import { BorrowDTO } from "../dto/borrow.dto";
 
 export const borrowBook = async (data: BorrowDTO) => {

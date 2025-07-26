@@ -4,10 +4,10 @@ import { authenticateToken } from "../middlewares/authMiddleware";
 
 const router = express.Router();
 
-router.post("/", authenticateToken, bookController.createBook);
-router.get("/", bookController.getBooks);
+router.post("/save", bookController.createBook);
+router.get("/all", bookController.getBooks);
 router.get("/:id", bookController.getBook);
-router.put("/:id", authenticateToken, bookController.updateBook);
-router.delete("/:id", authenticateToken, bookController.deleteBook);
+router.put("/update/:id", bookController.updateBook);
+router.delete("/delete/:id", bookController.deleteBook);
 
 export default router;

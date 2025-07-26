@@ -5,6 +5,7 @@ import userRoutes from "./routes/userRoutes";
 import authRoutes from "./routes/authRoutes";
 import bookRoutes from "./routes/bookRoutes";
 import borrowRoutes from "./routes/borrowRoutes";
+import adminRoutes from "./routes/adminRoutes";
 
 const app :Express = express();
 
@@ -23,8 +24,9 @@ const corsOptions = {
 app.use(cors(corsOptions)) // Enable or allow cors
 
 app.use("/api/v1/auth", authRoutes)
-app.use("/api/v1/user", authenticateToken, userRoutes)
+app.use("/api/v1/user", userRoutes)
 app.use("/api/v1/book", bookRoutes)
-app.use("/api/borrows", borrowRoutes);
+app.use("/api/v1/borrows", borrowRoutes);
+app.use('/api/v1/admin', adminRoutes)
 
 export default app;
