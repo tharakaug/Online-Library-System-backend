@@ -35,6 +35,19 @@ export const deleteBook = async (req: Request, res: Response) => {
     res.json({ message: "Book deleted successfully" });
 };
 
+export const saveProductImage = async (req: Request, res: Response) => {
+    if (!req.file) {
+        return res.status(400).json({ message: "No file uploaded" });
+    }
+
+    console.log("Uploaded file:", req.file);
+
+    res.status(200).json({
+        message: "Image uploaded successfully",
+        fileName: req.file.filename,
+    });
+};
+
 
 
 

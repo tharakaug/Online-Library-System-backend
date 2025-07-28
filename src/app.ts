@@ -7,7 +7,8 @@ import bookRoutes from "./routes/bookRoutes";
 import borrowRoutes from "./routes/borrowRoutes";
 import adminRoutes from "./routes/adminRoutes";
 
-import path from 'path'; //new
+import path from 'path';
+import fileUploadRoutes from "./routes/fileUploadRoutes"; //new
 
 const app :Express = express();
 
@@ -26,10 +27,12 @@ const corsOptions = {
 app.use(cors(corsOptions)) // Enable or allow cors
 
 app.use("/api/v1/auth", authRoutes)
-app.use("/api/v1/user", userRoutes)
-app.use("/api/v1/book", bookRoutes)
-app.use("/api/v1/borrows", borrowRoutes);
-app.use('/api/v1/admin', adminRoutes)
+app.use("/api/v1/user", userRoutes,authenticateToken)
+app.use("/api/v1/book", bookRoutes,authenticateToken)
+app.use("/api/v1/borrows", borrowRoutes,authenticateToken);
+app.use('/api/v1/admin', adminRoutes, authenticateToken)
+app.use('/api/v1/files',fileUploadRoutes)
+app.use("/api/v1/uploads/book", express.static(path.join(__dirname, "../public/book")));
 
 
 export default app;

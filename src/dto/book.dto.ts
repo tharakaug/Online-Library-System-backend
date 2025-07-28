@@ -6,4 +6,5 @@ export interface BookDTO {
     publishedYear?: number;
     availableCopies?: number;
     totalCopies?: number;
+    image: string
 }
